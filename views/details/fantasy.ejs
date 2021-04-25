@@ -1,0 +1,81 @@
+<%- include("../partials/header") %>
+
+<body style="background-color: rgb(248, 238, 240);">
+    <div style="margin: 100px;">
+
+        <div class="row">
+            <div class="col">
+                <div class="card" style="padding: 15px;width: 800px;background-color: black;">
+                    <!-- <h3 ><b>On going Matches</b></h3> -->
+                    <div class="row">
+                        <div class="col-xl-6" align="left">
+                            
+                            <%- include("../partials/logo1") %>
+        
+                            <h4 style="font-size: small;margin-left: auto;margin-right: auto;color: white;"><b><%= teams[0] %> </b> </h4>
+                            <table class="table table-hover table-dark">
+                                <tbody>
+                                    <% team1.forEach((player, index)=> { %>
+                                        <% let cv =  credits.filter(p => p.Players == player) %> 
+                                        <tr>
+                                            <td>
+                                                <div class="form-group form-check">
+                                                    <input value='<%= player %>' data-creditValue='<%= cv[0]['Credit Value'] %>' 
+                                                        onclick="getPlayer(this)" type="checkbox" class="form-check-input" id="<%= index + 1 %>">
+                                                    <label class="form-check-label" for="<%= index + 1 %>">
+                                                        <%= player %> - <%= cv[0]['Credit Value'] %>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+        
+                        <div class="col-xl-6" align="right">
+                            
+                            <%- include("../partials/logo2") %>
+        
+                            <h4 style="font-size: small;margin-left: auto;margin-right: auto;color:white"><b><%= teams[1] %> </b> </h4>
+        
+                            <table class="table table-hover table-dark">
+                                <tbody>
+                                    <% team2.forEach((player, index)=> { %>
+                                        <% let cv=credits.filter(p=> p.Players == player) %>
+                                        <tr>
+                                            <td>
+                                                <div class="form-group form-check">
+                                                    <input value='<%= player %>' data-creditValue='<%= cv[0]['Credit Value'] %>' 
+                                                        onclick="getPlayer(this)" type="checkbox" class="form-check-input" id="<%= index + 1 %>">
+                                                    <label class="form-check-label" for="<%= index + 1 %>">
+                                                        <%= player %> - <%= cv[0]['Credit Value'] %>
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card">
+                    <div class="card-header" align='center'>
+                        <div class="row">
+                            <div class="col">YOUR FANTASY TEAM</div>
+                            <div class="col"><span>Credits left: <b id='credit'>100</b> </span></div>
+                        </div>
+                    </div>
+                    <div class="card-body" id="team"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="/js/match.js"></script>
+<%- include("../partials/footer") %>

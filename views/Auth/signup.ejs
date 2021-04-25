@@ -1,0 +1,42 @@
+<%- include("../partials/header") %>
+
+    <!-- <button onclick="fsignOut()">Sign Out</button> -->
+
+    <div class="row">
+        <div class="col-xl-6">
+            <img src="/images/Login.svg" class="img-fluid" style="margin-top: 150px;margin-left: 50px;" />
+        </div>
+        <div class="col-xl-5" style="margin: 10px;">
+            <form action="/auth/cregister" method="POST" class="custom-details">
+                <div class="form-floating mb-3" style="margin: 20px;">
+                    <input type="name" name="username" class="form-control" id="floatingInput" placeholder="Ray_ha" required>
+                    <label for="floatingInput">Username</label>
+                </div>
+                <div class="form-floating" style="margin: 20px;">
+                    <input type="email" name="email" class="form-control" id="floatingEmail" placeholder="Email..." required>
+                    <label for="floatingEmail">Email</label>
+                </div>
+                <div class="form-floating" style="margin: 20px;">
+                    <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+                    <label for="floatingPassword">Password</label>
+                </div>
+                <button class="btn" style="width: 40%; margin: 20px; background-color: #DA178B;margin-left: 250px;color: white; font-weight: bold;">
+                    SignUp
+                </button>
+            </form>
+
+            <div class="row loginbuttons" style="margin-left: 150px;">
+                <div class="col w-100">
+                    <button type="button" class="btn btn-primary" onclick="fsignIn()" style="width: 40%;">
+                        SignUp with facebook
+                    </button>
+                    <button type="button" class="btn btn-success" onclick="psignIn()" style="width: 40%;">
+                        SignUp with phone number
+                    </button>
+                    <div id="recaptcha-container" style="margin: 15px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<%- include("../partials/footer") %>
