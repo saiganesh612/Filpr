@@ -30,7 +30,7 @@ const fsignOut = () => {
 const psignIn = async () => {
     try {
         const recaptcha = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-        const number = prompt("Enter your number", "");
+        const number = prompt("Enter your phone number along with country code", "");
         if (!number) return;
         const res = await firebase.auth().signInWithPhoneNumber(number, recaptcha);
         const otp = prompt("Enter OTP", "");

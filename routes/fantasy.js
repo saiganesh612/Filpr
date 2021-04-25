@@ -17,12 +17,12 @@ router.get("/fantasy-match", (req, res) => {
         let randIndex = Math.floor(Math.random() * (files.length + 1));
         let randomFile = files[randIndex]
 
-        res.render("details/match", { matchId: randomFile.replace('.json', '')})
+        res.render("details/match", { matchId: randomFile.replace('.json', '') })
     })
 })
 
 router.get("/fantasy-match/:id", (req, res) => {
-    const {id} = req.params;
+    const { id } = req.params;
 
     let randomFilePath = path.join(filesPath, `${id}.json`);
 
