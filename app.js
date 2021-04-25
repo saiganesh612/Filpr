@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV !== "production") {
+    require("dotenv").config();
+}
+
 const express = require("express");
 const app = express()
 const path = require("path");
@@ -11,7 +15,8 @@ const authRoutes = require("./routes/Auth");
 const fantasyRoutes = require("./routes/fantasy")
 
 //Connecting to database
-mongoose.connect("mongodb://localhost:27017/Flipr", {
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/Flipr'
+mongoose.connect(dbUrl, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true,
