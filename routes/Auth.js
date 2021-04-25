@@ -27,7 +27,7 @@ router.post("/cregister", async (req, res) => {
     } catch (e) {
         const errMssg = 'E11000 duplicate key error collection: Agile11.users index: email_1 dup key:'
         e.message = e.message.includes(errMssg) ? 'This email is already registered. Try to Sign Up with another mail' : e.message;
-        req.flash("error", e.message);
+        // req.flash("error", e.message);
         res.redirect("/auth/login");
     }
 })
